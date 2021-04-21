@@ -1,53 +1,51 @@
 set number
-filetype on                  " required
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-haml'
+" Fancy UI
+Plug 'vim-airline/vim-airline'
+Plug 'morhetz/gruvbox'
+Plug 'ryanoasis/vim-devicons'
+"-----------------------------------
+"Git
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 
- Plug 'scrooloose/nerdtree'
- Plug 'scrooloose/nerdcommenter'
- Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
- Plug 'junegunn/fzf.vim'
- Plug 'tpope/vim-haml'
- " Fancy UI
- Plug 'vim-airline/vim-airline'
- Plug 'morhetz/gruvbox'
- Plug 'ryanoasis/vim-devicons'
- "-----------------------------------
- "Git
- Plug 'tpope/vim-fugitive'
- Plug 'junegunn/gv.vim'
+"-----------------------------------
+Plug 'tpope/vim-endwise'
 
- "-----------------------------------
- Plug 'tpope/vim-endwise'
+" Autocomplete
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'wokalski/autocomplete-flow'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
- " Autocomplete
- Plug 'reasonml-editor/vim-reason-plus'
- Plug 'wokalski/autocomplete-flow'
- Plug 'terryma/vim-multiple-cursors'
- Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"LanguageServer
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
- "LanguageServer
- Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+"Snippet
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'jiangmiao/auto-pairs'
 
- "Snippet
- Plug 'Shougo/neosnippet.vim'
- Plug 'Shougo/neosnippet-snippets'
- Plug 'jiangmiao/auto-pairs'
+" JavaScript {{{4
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
- " JavaScript {{{4
- Plug 'pangloss/vim-javascript'
- Plug 'mxw/vim-jsx'
+" Ruby {{{4
+Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
+Plug 'tpope/vim-rails'
 
- " Ruby {{{4
- Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
- Plug 'tpope/vim-rails'
+"Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
- "Go
- Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
- "Navigation
- Plug 'tpope/vim-surround'
- call plug#end()
+"Navigation
+Plug 'tpope/vim-surround'
+call plug#end()
 
 filetype plugin indent on    " required
 
@@ -60,12 +58,18 @@ filetype plugin indent on    " required
  set background=dark                      " Setting dark mode
  
  set nowrap
- 
+
+ "search option
+ set hlsearch
+ set ignorecase
+ set smartcase
+
  if has('unnamedplus')
    set clipboard=unnamed,unnamedplus
  endif
  let g:gruvbox_contrast_dark = 'hard'
  let g:gruvbox_hls_cursor = 'yellow'
+
  syntax enable
  scriptencoding utf-8
  set mouse=a                              "highlight the current line for the cursor
@@ -74,13 +78,15 @@ filetype plugin indent on    " required
  set listchars=tab:\|\ ,trail:▫
 
  "Indention
- setlocal tabstop=2     "tabs are at proper location
- setlocal expandtab     "don't use actual tab character (ctrl-v)
- setlocal shiftwidth=2  "indenting is 2 spaces
- setlocal autoindent    "turns it on
- setlocal smartindent   "does the right thing (mostly) in programs
- setlocal softtabstop=2
- setlocal smarttab
+ set tabstop=2     "tabs are at proper location
+ set shiftwidth=2  "indenting is 2 spaces
+ set softtabstop=2
+ set expandtab     "don't use actual tab character (ctrl-v)
+ set shiftround
+ set autoindent    "turns it on
+
+ set smartindent   "does the right thing (mostly) in programs
+ set smarttab
 
  "Vim airline
  let g:airline#extensions#tabline#enabled = 1
@@ -98,7 +104,7 @@ filetype plugin indent on    " required
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
   endif
-" powerline symbols
+ "powerline symbols
   let g:airline_left_sep = ''
   let g:airline_left_alt_sep = ''
   let g:airline_right_sep = ''
@@ -288,10 +294,10 @@ au FileType html set tabstop=2
 "----------------------------------------------
 " Language: JavaScript
 "----------------------------------------------
-au FileType javascript setlocal expandtab
-au FileType javascript setlocal shiftwidth=2
-au FileType javascript setlocal softtabstop=2
-au FileType javascript setlocal tabstop=2
+au filetype javascript set expandtab
+au filetype javascript set shiftwidth=2
+au filetype javascript set softtabstop=2
+au filetype javascript set tabstop=2
 
 "----------------------------------------------
 " Language: JSON
@@ -304,10 +310,10 @@ au FileType json set tabstop=2
 
 " Language: JavaScriptReact
 "----------------------------------------------
-au FileType javascriptreact setlocal expandtab
-au FileType javascriptreact setlocal shiftwidth=2
-au FileType javascriptreact setlocal softtabstop=2
-au FileType javascriptreact setlocal tabstop=2
+autocmd FileType javascriptreact set expandtab
+autocmd FileType javascriptreact set shiftwidth=2
+autocmd FileType javascriptreact set softtabstop=2
+autocmd FileType javascriptreact set tabstop=2
 
  "----------------------------------------------
  " Plugin: 'terryma/vim-multiple-cursors'
