@@ -7,7 +7,7 @@
     "json",
     "reason",
     "reasonreact",
-    "elixir"
+    "ruby"
   ],
   "languageserver": {
     "ocaml-lsp": {
@@ -19,5 +19,8 @@
       "command": "/absolute/path/to/elixir-ls/release/language_server.sh",
       "filetypes": ["elixir", "eelixir"]
     }
-  }
+  },
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": false,
+  "solargraph.formatting": true
 }
