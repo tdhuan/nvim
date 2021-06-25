@@ -91,6 +91,11 @@ set autoindent    "turns it on
 set smartindent   "does the right thing (mostly) in programs
 set smarttab
 
+map <Leader> nhl :nohls<CR>
+
+"Map :bd (buffer delete)
+map bd :bd        
+
 "Vim airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
@@ -124,7 +129,13 @@ endif
 map <Leader>nt :NERDTreeToggle<CR>
 map <Leader>nr :NERDTreeFind<CR>
 
+"FZF
 map ; :Files<CR>
+map gf :GFiles?<CR>
+
+"The silver searcher (find all)
+nnoremap <silent> <Leader>F :Ag<CR>
+let g:ackprg = 'ag --vimgrep'
 
 "===============================
 
@@ -156,12 +167,6 @@ set completeopt+=menuone
 "let g:ale_completion_enabled = 1
 "let g:ale_completion_maix_suggestions = 100
 "let g:ale_fixers = {}
-
-"Switch tabs
-nnoremap H gT
-nnoremap L gt
-nnoremap tn :tabnew<CR>
-
 "ale
 
 "===============================
