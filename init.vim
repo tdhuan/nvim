@@ -91,7 +91,7 @@ set autoindent    "turns it on
 set smartindent   "does the right thing (mostly) in programs
 set smarttab
 
-map <Leader> nhl :nohls<CR>
+map <Leader>nhl :nohls<CR>
 
 "Map :bd (buffer delete)
 map bd :bd        
