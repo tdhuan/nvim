@@ -38,6 +38,9 @@ Plug 'mxw/vim-jsx'
 Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
 Plug 'tpope/vim-rails'
 
+"Rescript
+Plug 'rescript-lang/vim-rescript'
+
 "Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
@@ -93,6 +96,8 @@ set smarttab
 
 map <Leader>nhl :nohls<CR>
 
+map <Leader>s :.,$s/foo/bar/g
+
 "Map :bd (buffer delete)
 map bd :bd        
 
@@ -131,7 +136,9 @@ map <Leader>nr :NERDTreeFind<CR>
 
 "FZF
 map ; :Files<CR>
-map gf :GFiles?<CR>
+
+"show files change with git
+map gf :GFiles?<CR> 
 
 "The silver searcher (find all)
 nnoremap <silent> <Leader>F :Ag<CR>

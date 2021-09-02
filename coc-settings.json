@@ -18,6 +18,13 @@
     "elixirLS": {
       "command": "/absolute/path/to/elixir-ls/release/language_server.sh",
       "filetypes": ["elixir", "eelixir"]
+    },
+    "rescript": {
+      "enable": true,
+      "module": "~/.config/nvim/plugged/vim-rescript/server/out/server.js",
+      "args": ["--node-ipc"],
+      "filetypes": ["rescript"],
+      "rootPatterns": ["bsconfig.json"]
     }
   },
   "solargraph.diagnostics": true,
