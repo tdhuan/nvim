@@ -8,6 +8,7 @@ Plug 'tpope/vim-haml'
 Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
+Plug 'dracula/vim', { 'as': 'dracula' }
 "-----------------------------------
 "Git
 Plug 'tpope/vim-fugitive'
@@ -56,8 +57,10 @@ filetype plugin indent on    " required
 set number
 set termguicolors
 set encoding=UTF-8
+
 colorscheme gruvbox
 set background=dark                      " Setting dark mode
+
 set nowrap
 set splitright 
 set splitbelow
@@ -72,7 +75,6 @@ if has('unnamedplus')
 endif
 
 let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_hls_cursor = 'yellow'
 
 syntax enable
 scriptencoding utf-8
@@ -94,12 +96,18 @@ set autoindent    "turns it on
 set smartindent   "does the right thing (mostly) in programs
 set smarttab
 
-map <Leader>nhl :nohls<CR>
+"turn off highlight search
+nnoremap <Leader>nhl :nohls<CR>
 
-map <Leader>s :.,$s/foo/bar/g
+nnoremap <Leader>s :.,$s/foo/bar/g
 
 "Map :bd (buffer delete)
-map bd :bd        
+nnoremap bd :bd<cr>
+
+"Quick save / quit
+noremap <leader>w :w<cr>
+noremap <leader>q :q<cr>
+
 
 "Vim airline
 let g:airline#extensions#tabline#enabled = 1
