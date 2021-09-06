@@ -61,6 +61,10 @@ set encoding=UTF-8
 colorscheme gruvbox
 set background=dark                      " Setting dark mode
 
+"resize window
+nnoremap + :vertical resize +5<CR>
+nnoremap _ :vertical resize -5<CR>
+
 set nowrap
 set splitright 
 set splitbelow
@@ -99,7 +103,8 @@ set smarttab
 "turn off highlight search
 nnoremap <Leader>nhl :nohls<CR>
 
-nnoremap <Leader>s :.,$s/foo/bar/g
+noremap <Leader>s :.,$s/foo/bar/g
+nnoremap <leader>sp :vsplit<cr>
 
 "Map :bd (buffer delete)
 nnoremap bd :bd<cr>
@@ -146,7 +151,8 @@ map <Leader>nr :NERDTreeFind<CR>
 map ; :Files<CR>
 
 "show files change with git
-map gf :GFiles?<CR> 
+noremap gf :GFiles?<CR> 
+noremap <leader>gb :Gblame<cr>
 
 "The silver searcher (find all)
 nnoremap <silent> <Leader>F :Ag<CR>
@@ -199,19 +205,6 @@ nnoremap H gT
 nnoremap L gt
 nnoremap tn :tabnew<CR>
 
-
-"let g:deoplete#enable_smart_case = 1
-"let g:deoplete#enable_camel_case = 1
-"let g:deoplete#enable_ignore_case = 1
-"let g:deoplete#enable_refresh_always = 1
-
-"let g:LanguageClient_autoStart = 1
-"call deoplete#custom#source('LanguageClient',
-"           \ 'min_pattern_length',
-"           \ 2)
-
-""autocmd BufEnter  *  call ncm2#enable_for_buffer()
-"autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
 " Run gofmt on save
 autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
 " neosnippet
