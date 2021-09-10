@@ -113,6 +113,12 @@ nnoremap bd :bd<cr>
 noremap <leader>w :w<cr>
 noremap <leader>q :q<cr>
 
+"Quick toggle between two files *CTRL-^* *CTRL-6*
+nnoremap <BS> <C-^>
+nnoremap 2<BS> 2<C-^>
+
+"Quick :source%
+nnoremap <Leader>src :source%<CR>
 
 "Vim airline
 let g:airline#extensions#tabline#enabled = 1
@@ -151,8 +157,8 @@ map <Leader>nr :NERDTreeFind<CR>
 map ; :Files<CR>
 
 "show files change with git
-noremap gf :GFiles?<CR> 
-noremap <leader>gb :Gblame<cr>
+nnoremap <Leader>gf :GFiles?<CR> 
+nnoremap <leader>gb :Gblame<cr>
 
 "The silver searcher (find all)
 nnoremap <silent> <Leader>F :Ag<CR>
