@@ -6,9 +6,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-haml'
 " Fancy UI
 Plug 'vim-airline/vim-airline'
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'ryanoasis/vim-devicons'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
 "-----------------------------------
 "Git
 Plug 'tpope/vim-fugitive'
@@ -49,7 +49,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-surround'
 call plug#end()
 
-filetype plugin indent on    " required
+filetype plugin on    " required
+filetype indent on
 
 "----------------------------------------------------------
 "General settings
@@ -58,13 +59,16 @@ set number
 set termguicolors
 set encoding=UTF-8
 
-colorscheme gruvbox
+colorscheme gruvbox-material
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_palette = 'material'
 set background=dark                      " Setting dark mode
 
 "resize window
 nnoremap + :vertical resize +5<CR>
 nnoremap _ :vertical resize -5<CR>
 
+set ruler
 set nowrap
 set splitright 
 set splitbelow
@@ -74,19 +78,23 @@ set hlsearch
 set ignorecase
 set smartcase
 
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
-
-let g:gruvbox_contrast_dark = 'hard'
 
 syntax enable
 scriptencoding utf-8
 set mouse=a                              "highlight the current line for the cursor
 set cursorline
 set list                          " show trailing whitespace
-set listchars=tab:\|\ ,trail:▫
-
+set listchars=tab:→\·,trail:•,extends:>,precedes:<
 set modifiable  "Allow hit "a" key to create a new file
 
 "Indention
@@ -101,21 +109,24 @@ set smartindent   "does the right thing (mostly) in programs
 set smarttab
 
 "turn off highlight search
-nnoremap <Leader>nhl :nohls<CR>
+nnoremap <silent><Leader>nhl :nohl<CR>
 
-noremap <Leader>s :.,$s/foo/bar/g
-nnoremap <leader>sp :vsplit<cr>
+noremap <Leader>S :.,$s/foo/bar/g
+nnoremap <silent>vs :vsplit<cr>
+nnoremap <silent>sp :split<cr>
 
 "Map :bd (buffer delete)
 nnoremap bd :bd<cr>
+nnoremap <Leader>b :buffers<cr>
+nnoremap <silent>H :bp<cr>
+nnoremap <silent>L :bn<cr>
 
 "Quick save / quit
-noremap <leader>w :w<cr>
-noremap <leader>q :q<cr>
+noremap <silent><leader>w :w<cr>
+noremap <silent><leader>q :q<cr>
 
 "Quick toggle between two files *CTRL-^* *CTRL-6*
-nnoremap <BS> <C-^>
-nnoremap 2<BS> 2<C-^>
+nnoremap <Tab> <C-^>
 
 "Quick :source%
 nnoremap <Leader>src :source%<CR>
@@ -175,8 +186,8 @@ nnoremap <C-H> <C-W><C-H>
 "================================
 
 "Switch tabs
-nnoremap H gT
-nnoremap L gt
+"nnoremap H gT
+"nnoremap L gt
 nnoremap tn :tabnew<CR>
 
 set completeopt+=noinsert
@@ -187,29 +198,8 @@ set completeopt+=menuone
 function! Multiple_cursors_before()
  'go': ['gopls']
 endfunction
-set completeopt+=noinsert
-set completeopt+=preview
-set completeopt+=menuone
-
-"let g:ale_completion_enabled = 1
-"let g:ale_completion_maix_suggestions = 100
-"let g:ale_fixers = {}
-"ale
-
-"===============================
-
-"Split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 "================================
-
-"Switch tabs
-nnoremap H gT
-nnoremap L gt
-nnoremap tn :tabnew<CR>
 
 " Run gofmt on save
 autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
@@ -330,7 +320,7 @@ vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 "coc.nvim
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-css', 'coc-tsserver', 'coc-snippets', 'coc-pairs']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-css', 'coc-tsserver', 'coc-snippets', 'coc-pairs', 'coc-solargraph']
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -486,3 +476,21 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+
+"=========================
+"
+"Treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+  },
+  indent = {
+    enable = true
+  }
+}
+EOF
