@@ -61,7 +61,7 @@ set encoding=UTF-8
 
 colorscheme gruvbox-material
 let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_palette = 'material'
+let g:gruvbox_material_palette = 'mix'
 set background=dark                      " Setting dark mode
 
 "resize window
@@ -130,6 +130,9 @@ nnoremap <Tab> <C-^>
 
 "Quick :source%
 nnoremap <Leader>src :source%<CR>
+
+inoremap kj <ESC>
+inoremap kjs <ESC>:w<cr>
 
 "Vim airline
 let g:airline#extensions#tabline#enabled = 1
