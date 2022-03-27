@@ -29,6 +29,6 @@
     }
   },
   "solargraph.diagnostics": true,
-  "solargraph.autoformat": false,
+  "solargraph.autoformat": true,
   "solargraph.formatting": true
 }
