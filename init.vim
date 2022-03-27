@@ -56,13 +56,17 @@ filetype indent on
 "General settings
 "----------------------------------------------------------
 set number
-set termguicolors
 set encoding=UTF-8
 
-colorscheme gruvbox-material
+set termguicolors
+
+set background=dark                      " Setting dark mode
 let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_palette = 'mix'
-set background=dark                      " Setting dark mode
+colorscheme gruvbox-material
+
+let g:airline_theme = 'gruvbox_material'
+
 
 "resize window
 nnoremap + :vertical resize +5<CR>
@@ -135,8 +139,10 @@ inoremap kj <ESC>
 inoremap kjs <ESC>:w<cr>
 
 "Vim airline
+"let :airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
+ let g:airline_left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 "configure whether close button should be shown: >
