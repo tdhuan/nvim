@@ -56,6 +56,7 @@ filetype indent on
 "General settings
 "----------------------------------------------------------
 set number
+set noswapfile
 set encoding=UTF-8
 
 set termguicolors
