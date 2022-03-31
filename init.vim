@@ -137,7 +137,7 @@ nnoremap <Tab> <C-^>
 nnoremap <Leader>src :source%<CR>
 
 inoremap kj <ESC>
-inoremap kjs <ESC>:w<cr>
+inoremap kjw ESC>:w<cr>
 
 nnoremap bl ^
 nnoremap el $
