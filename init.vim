@@ -23,9 +23,6 @@ Plug 'wokalski/autocomplete-flow'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-"LanguageServer
-Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
-
 "Snippet
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
