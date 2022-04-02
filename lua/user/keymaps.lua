@@ -37,6 +37,16 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
+-- Delete buffer
+keymap("n", "bd", ":bd<CR>", opts)
+
+-- Show list buffers
+keymap("n", "<leader>ls", ":buffers<CR>", opts)
+
+-- Quick move to begin/end line
+keymap("n", "<leader>e", "$", opts)
+keymap("n", "<leader>b", "^", opts)
+
 -- Split window
 keymap("n", "vs", ":vsplit<CR>", opts)
 keymap("n", "sp", ":split<CR>", opts)
