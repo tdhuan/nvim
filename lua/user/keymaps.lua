@@ -65,3 +65,10 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+-- Split window
+keymap("n", "vs", ":vsplit<CR>", opts)
+keymap("n", "sp", ":split<CR>", opts)
+
+-- Quick save, quick quit
+keymap("n", "<leader>w", ":w<CR>", opts)
+keymap("n", "sp", ":split<CR>", opts)
