@@ -1,4 +1,5 @@
 local opts = { noremap = true, silent = true }
+local no_silent_opts = { noremap = true, silent = false }
 
 local term_opts = { silent = true }
 
@@ -47,13 +48,20 @@ keymap("n", "<leader>ls", ":buffers<CR>", opts)
 keymap("n", "<leader>e", "$", opts)
 keymap("n", "<leader>b", "^", opts)
 
--- Split window
+
 keymap("n", "vs", ":vsplit<CR>", opts)
 keymap("n", "sp", ":split<CR>", opts)
 
 -- Quick save, quick quit
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":q<CR>", opts)
+
+-- Quick search, replace
+keymap("n", "<leader>S", ":.,$s/foo/bar/g", no_silent_opts)
+
+-- Turn off no highlight search
+keymap("n", "<leader>nhl", ":nohl<CR>", opts)
+
 
 ---------------------------- INSERT  ---------------------------- 
 -- Press jk fast to enter
