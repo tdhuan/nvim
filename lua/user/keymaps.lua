@@ -62,6 +62,9 @@ keymap("n", "<leader>S", ":.,$s/foo/bar/g", no_silent_opts)
 -- Turn off no highlight search
 keymap("n", "<leader>nhl", ":nohl<CR>", opts)
 
+-- Quick toggle between two files *CTRL-^* *CTRL-6*
+keymap("n", "<Tab>", "<C-^>", no_silent_opts)
+
 
 ---------------------------- INSERT  ---------------------------- 
 -- Press jk fast to enter
