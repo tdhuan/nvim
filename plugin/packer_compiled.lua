@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["gruvbox-material"] = {
+    loaded = true,
+    path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/gruvbox-material",
+    url = "https://github.com/sainnhe/gruvbox-material"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/packer.nvim",

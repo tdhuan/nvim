@@ -29,6 +29,7 @@ packer.init {
 return require('packer').startup(function(use)
   -- My plugins here
   use 'wbthomason/packer.nvim'
+  use 'sainnhe/gruvbox-material'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
