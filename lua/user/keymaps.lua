@@ -18,7 +18,7 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
----------------------- NORMAL  ---------------------- 
+---------------------------- NORMAL  ---------------------------- 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -28,10 +28,10 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "=", ":resize +10<CR>", opts)
+keymap("n", "-", ":resize -10<CR>", opts)
+keymap("n", "+", ":vertical resize +10<CR>", opts)
+keymap("n", "_", ":vertical resize -10<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -55,14 +55,14 @@ keymap("n", "sp", ":split<CR>", opts)
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":q<CR>", opts)
 
----------------------- INSERT  ---------------------- 
+---------------------------- INSERT  ---------------------------- 
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
 
 -- Press jks to fast switch Normal mode and save file
 keymap("i", "jkw", "<ESC>:w<CR>", opts) 
 
----------------------- VISUAL  ---------------------- 
+---------------------------- VISUAL  ---------------------------- 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -72,14 +72,14 @@ keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
----------------------- VISUAL BLOCK  ---------------------- 
+---------------------------- VISUAL BLOCK  ---------------------------- 
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
----------------------- TERMINAL  ---------------------- 
+---------------------------- TERMINAL  ---------------------------- 
 -- Better terminal navigation
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
