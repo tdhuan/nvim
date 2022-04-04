@@ -8,7 +8,9 @@
     "reason",
     "reasonreact",
     "ruby",
-    "rescript"
+    "rescript",
+    "rb",
+    "erb"
   ],
   "languageserver": {
     "ocaml-lsp": {
