@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
   },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/packer.nvim",
