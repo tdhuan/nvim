@@ -26,7 +26,7 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+keymap("n", "<leader>le", ":Lex 20<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "=", ":resize +10<CR>", opts)
@@ -45,8 +45,8 @@ keymap("n", "bd", ":bd<CR>", opts)
 keymap("n", "<leader>ls", ":buffers<CR>", opts)
 
 -- Quick move to begin/end line
-keymap("n", "<leader>e", "$", opts)
-keymap("n", "<leader>b", "^", opts)
+keymap("n", "<leader>el", "$", opts)
+keymap("n", "<leader>bl", "^", opts)
 
 
 keymap("n", "vs", ":vsplit<CR>", opts)
@@ -66,7 +66,7 @@ keymap("n", "<leader>nhl", ":nohl<CR>", opts)
 keymap("n", "<Tab>", "<C-^>", no_silent_opts)
 
 
----------------------------- INSERT  ---------------------------- 
+---------------------------- INSERT  ----------------------------
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
 
