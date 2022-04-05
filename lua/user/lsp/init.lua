@@ -1,3 +1,13 @@
+local cmp_lsp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_lsp_status_ok then
+  return
+end
+
+local lsp_status_ok, lsp_config = pcall(require, "lspconfig")
+if not lsp_status_ok then
+  return
+end
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -30,7 +40,7 @@ local on_attach = function(bufnr)
 end
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
@@ -58,7 +68,7 @@ local lang_configs = {
   }
 }
 for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup(vim.tbl_deep_extend("force", lang_configs[lsp], {
+  lsp_config[lsp].setup(vim.tbl_deep_extend("force", lang_configs[lsp], {
     on_attach = on_attach,
     flags = {
       -- This will be the default in neovim 0.7+
