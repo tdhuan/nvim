@@ -2,14 +2,15 @@ require "user.options"
 require "user.keymaps"
 require "user.plugins"
 require "user.lsp"
+require "user.cmp"
 
 local cmd = vim.cmd
-local a = vim.api
+local api = vim.api
 
 cmd [[filetype plugin indent on]]
 cmd [[syntax enable]]
 
-vim.api.nvim_set_var('gruvbox_material_palette', 'material')
-vim.api.nvim_set_var('gruvbox_material_background', 'hard')
-vim.api.nvim_set_var('g:gruvbox_material_better_performance', '1')
+api.nvim_set_var('gruvbox_material_palette', 'material')
+api.nvim_set_var('gruvbox_material_background', 'hard')
+api.nvim_set_var('g:gruvbox_material_better_performance', '1')
 cmd [[colorscheme gruvbox-material]]
