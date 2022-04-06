@@ -41,6 +41,11 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
+  use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

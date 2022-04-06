@@ -71,9 +71,9 @@ keymap("n", "<Tab>", "<C-^>", no_silent_opts)
 keymap("i", "jk", "<ESC>", opts)
 
 -- Press jks to fast switch Normal mode and save file
-keymap("i", "jkw", "<ESC>:w<CR>", opts) 
+keymap("i", "jkw", "<ESC>:w<CR>", opts)
 
----------------------------- VISUAL  ---------------------------- 
+---------------------------- VISUAL  ----------------------------
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -83,14 +83,14 @@ keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
----------------------------- VISUAL BLOCK  ---------------------------- 
+---------------------------- VISUAL BLOCK  ----------------------------
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
----------------------------- TERMINAL  ---------------------------- 
+---------------------------- TERMINAL  ----------------------------
 -- Better terminal navigation
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
