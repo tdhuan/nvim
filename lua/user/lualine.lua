@@ -3,6 +3,10 @@ if not status_ok then
   return
 end
 
+local function window()
+  return vim.api.nvim_win_get_number(0)
+end
+
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -14,7 +18,7 @@ lualine.setup {
     globalstatus = false,
   },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = {'mode', window},
     lualine_b = {'branch', 'diff', 'diagnostics', {'b:gitsigns_head', icon = ''}},
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
