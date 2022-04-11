@@ -4,6 +4,7 @@ require "user.plugins"
 require "user.lsp"
 require "user.cmp"
 require "user.gitsigns"
+require "user.lualine"
 
 local cmd = vim.cmd
 local api = vim.api

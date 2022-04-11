@@ -50,6 +50,11 @@ return require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim',
     -- tag = 'release' -- To use the latest release
   }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
