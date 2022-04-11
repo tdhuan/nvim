@@ -3,6 +3,7 @@ require "user.keymaps"
 require "user.plugins"
 require "user.lsp"
 require "user.cmp"
+require "user.gitsigns"
 
 local cmd = vim.cmd
 local api = vim.api
