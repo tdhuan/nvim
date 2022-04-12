@@ -69,6 +69,12 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    config = { 'require"comment"' },
+    loaded = true,
+    path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -147,6 +153,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+require"comment"
+time([[Config for Comment.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

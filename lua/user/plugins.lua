@@ -57,6 +57,10 @@ return require('packer').startup(function(use)
   }
 
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
+  use {
+      'numToStr/Comment.nvim',
+      config = [[require"comment"]] 
+    }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

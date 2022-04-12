@@ -6,6 +6,7 @@ require "user.cmp"
 require "user.gitsigns"
 require "user.lualine"
 require "user.bufferline"
+require "user.comment"
 
 local cmd = vim.cmd
 local api = vim.api
