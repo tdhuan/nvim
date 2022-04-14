@@ -8,6 +8,8 @@ if not lsp_status_ok then
   return
 end
 
+require "user.lsp.lsp-installer"
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -81,6 +83,7 @@ local lang_configs = {
     settings = { diagnostics = true, autoformat = true},
   }
 }
+
 for _, lsp in pairs(servers) do
   lsp_config[lsp].setup(vim.tbl_deep_extend("force", lang_configs[lsp], {
     on_attach = on_attach,
