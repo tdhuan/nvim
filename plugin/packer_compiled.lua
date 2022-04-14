@@ -165,6 +165,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["vim-rescript"] = {
+    loaded = true,
+    path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/vim-rescript",
+    url = "https://github.com/rescript-lang/vim-rescript"
   }
 }
 
