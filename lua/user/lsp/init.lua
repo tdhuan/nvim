@@ -8,7 +8,20 @@ if not lsp_status_ok then
 	return
 end
 
-require("user.lsp.lsp-installer")
+local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not status_ok then
+	return
+end
+
+lsp_installer.settings({
+	ui = {
+		icons = {
+			server_installed = "✓",
+			server_pending = "➜",
+			server_uninstalled = "✗",
+		},
+	},
+})
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -96,12 +109,22 @@ local lang_configs = {
 	},
 }
 
+for _, name in pairs(servers) do
+	local server_is_found, server = lsp_installer.get_server(name)
+	if server_is_found then
+		if not server:is_installed() then
+			print("Installing " .. name)
+			server:install()
+		end
+	end
+end
+
 for _, lsp in pairs(servers) do
 	lsp_config[lsp].setup(vim.tbl_deep_extend("force", lang_configs[lsp], {
 		on_attach = on_attach,
 		flags = {
 			-- This will be the default in neovim 0.7+
-			debounce_text_changes = 150,
+			debounce_text_changes = 100,
 		},
 		capabilities = capabilities,
 	}))
