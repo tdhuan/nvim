@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
   use 'sainnhe/gruvbox-material'
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+  use 'nvim-lua/plenary.nvim'
 
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
