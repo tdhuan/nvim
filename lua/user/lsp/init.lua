@@ -38,7 +38,13 @@ local on_attach = function(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+            vim.cmd([[
+            augroup LspFormatting
+                autocmd! * <buffer>
+                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+            augroup END
+            ]])
 end
 
 -- Setup lspconfig.
@@ -80,7 +86,7 @@ local lang_configs = {
     cmd = { "solargraph", "stdio" },
     filetypes = {"ruby", "rb", "erb", "rakefile"},
     init_options = { formatting = true},
-    settings = { diagnostics = true, autoformat = true},
+    settings = { diagnostics = true, autoformat = false, formatting = true},
   }
 }
 
@@ -94,3 +100,5 @@ for _, lsp in pairs(servers) do
     capabilities = capabilities
   }))
 end
+
+require "user.null-ls"

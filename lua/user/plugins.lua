@@ -63,6 +63,14 @@ return require('packer').startup(function(use)
       'numToStr/Comment.nvim',
       config = [[require"comment"]]
     }
+
+  use({
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+          require("null-ls").setup()
+      end,
+      requires = { "nvim-lua/plenary.nvim" },
+  })
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
