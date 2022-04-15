@@ -80,6 +80,11 @@ return require("packer").startup(function(use)
 		end,
 		requires = { "nvim-lua/plenary.nvim" },
 	})
+
+	use({
+		"junegunn/fzf.vim",
+		requires = { "junegunn/fzf", dir = "~/.fzf", run = "./install --all" },
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
