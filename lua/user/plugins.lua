@@ -93,6 +93,7 @@ return require("packer").startup(function(use)
 		cmd = "CHADopen",
 	})
 
+	use("lukas-reineke/indent-blankline.nvim")
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then

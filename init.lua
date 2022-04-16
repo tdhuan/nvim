@@ -8,6 +8,7 @@ require("user.lualine")
 require("user.bufferline")
 require("user.comment")
 require("user.chadtree")
+require("user.indent-blankline")
 
 local cmd = vim.cmd
 local api = vim.api
