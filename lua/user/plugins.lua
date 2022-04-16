@@ -85,6 +85,14 @@ return require("packer").startup(function(use)
 		"junegunn/fzf.vim",
 		requires = { "junegunn/fzf", dir = "~/.fzf", run = "./install --all" },
 	})
+
+	use({
+		"ms-jpq/chadtree",
+		branch = "chad",
+		run = "python3 -m chadtree deps",
+		cmd = "CHADopen",
+	})
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then

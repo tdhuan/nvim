@@ -85,6 +85,14 @@ _G.packer_plugins = {
     path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  chadtree = {
+    commands = { "CHADopen" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/huantd/.local/share/nvim/site/pack/packer/opt/chadtree",
+    url = "https://github.com/ms-jpq/chadtree"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -184,14 +192,20 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-require"comment"
-time([[Config for Comment.nvim]], false)
 -- Config for: null-ls.nvim
 time([[Config for null-ls.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fnull-ls\frequire\0", "config", "null-ls.nvim")
 time([[Config for null-ls.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+require"comment"
+time([[Config for Comment.nvim]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file CHADopen lua require("packer.load")({'chadtree'}, { cmd = "CHADopen", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
 if should_profile then save_profiles() end
 
 end)

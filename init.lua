@@ -7,6 +7,7 @@ require("user.gitsigns")
 require("user.lualine")
 require("user.bufferline")
 require("user.comment")
+require("user.chadtree")
 
 local cmd = vim.cmd
 local api = vim.api
