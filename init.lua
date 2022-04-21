@@ -1,3 +1,9 @@
+local cmd = vim.cmd
+local api = vim.api
+
+cmd([[filetype plugin indent on]])
+cmd([[syntax enable]])
+
 require("user.options")
 require("user.keymaps")
 require("user.plugins")
@@ -9,12 +15,9 @@ require("user.bufferline")
 require("user.comment")
 require("user.chadtree")
 require("user.indent-blankline")
-
-local cmd = vim.cmd
-local api = vim.api
-
-cmd([[filetype plugin indent on]])
-cmd([[syntax enable]])
+require("user.auto-pairs")
+require("user.auto-tag")
+require("user.treesitter")
 
 api.nvim_set_var("gruvbox_material_palette", "mix")
 api.nvim_set_var("gruvbox_material_background", "hard")
