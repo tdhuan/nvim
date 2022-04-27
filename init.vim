@@ -168,17 +168,29 @@ endif
 map <Leader>nt :NERDTreeToggle<CR>
 map <Leader>nr :NERDTreeFind<CR>
 
-"FZF
+"========= FZF =========
 map ; :Files<CR>
-
+let $FZF_DEFAULT_COMMAND = 'rg --files  --hidden --follow --glob "!{.git, node_modules}"'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': []}), <bang>0)
 "show files change with git
 nnoremap <Leader>gf :GFiles?<CR> 
 nnoremap <leader>gb :Gblame<cr>
 
+function! FzfAutoRefreshRipgrep(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --smart-case --hidden --color=always --glob "!{.git, node_modules}" -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang RG call FzfAutoRefreshRipgrep(<q-args>, <bang>0)
+nnoremap <silent> <leader>rg <ESC>:RG<CR>
+
 "The silver searcher (find all)
 nnoremap <silent> <Leader>F :Ag<CR>
 let g:ackprg = 'ag --vimgrep'
-
 "===============================
 
 "Split navigations
