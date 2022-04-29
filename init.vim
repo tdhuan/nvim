@@ -274,44 +274,50 @@ let g:go_snippet_engine = "neosnippet"
 "----------------------------------------------
 " Language: Golang
 "----------------------------------------------
-au FileType go set noexpandtab
-au FileType go set shiftwidth=4
-au FileType go set softtabstop=4
-au FileType go set tabstop=4
+autocmd FileType go set noexpandtab
+autocmd FileType go set shiftwidth=2
+autocmd FileType go set softtabstop=2
+autocmd FileType go set tabstop=2
 "----------------------------------------------
 
 "----------------------------------------------
 " Language: CSS
 "----------------------------------------------
-au FileType css set expandtab
-au FileType css set shiftwidth=2
-au FileType css set softtabstop=2
-au FileType css set tabstop=2
+autocmd FileType css set expandtab
+autocmd FileType css set shiftwidth=2
+autocmd FileType css set softtabstop=2
+autocmd FileType css set tabstop=2
 
 
 "----------------------------------------------
 " Language: HTML
 "----------------------------------------------
-au FileType html set expandtab
-au FileType html set shiftwidth=2
-au FileType html set softtabstop=2
-au FileType html set tabstop=2
+autocmd FileType html set expandtab
+autocmd FileType html set shiftwidth=2
+autocmd FileType html set softtabstop=2
+autocmd FileType html set tabstop=2
+
+autocmd FileType eruby set expandtab
+autocmd FileType eruby set shiftwidth=2
+autocmd FileType eruby set softtabstop=2
+autocmd FileType eruby set tabstop=2
+
 
 "----------------------------------------------
 " Language: JavaScript
 "----------------------------------------------
-au filetype javascript set expandtab
-au filetype javascript set shiftwidth=2
-au filetype javascript set softtabstop=2
-au filetype javascript set tabstop=2
+autocmd Filetype javascript set expandtab
+autocmd Filetype javascript set shiftwidth=2
+autocmd Filetype javascript set softtabstop=2
+autocmd Filetype javascript set tabstop=2
 
 "----------------------------------------------
 " Language: JSON
 "----------------------------------------------
-au FileType json set expandtab
-au FileType json set shiftwidth=2
-au FileType json set softtabstop=2
-au FileType json set tabstop=2
+autocmd FileType json set expandtab
+autocmd FileType json set shiftwidth=2
+autocmd FileType json set softtabstop=2
+autocmd FileType json set tabstop=2
 
 
 " Language: JavaScriptReact
