@@ -1,6 +1,18 @@
 local cmd = vim.cmd
 local api = vim.api
 
+_G.log = {
+	info = function(msg)
+		vim.notify(msg, vim.log.levels.INFO)
+	end,
+	warn = function(msg)
+		vim.notify(msg, vim.log.levels.WARN)
+	end,
+	err = function(msg)
+		vim.notify(msg, vim.log.levels.ERROR)
+	end,
+}
+
 cmd([[filetype plugin indent on]])
 cmd([[syntax enable]])
 
