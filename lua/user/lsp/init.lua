@@ -58,12 +58,12 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-	vim.cmd([[
-            augroup LspFormatting
-                autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-            augroup END
-            ]])
+	-- vim.cmd([[
+	--            augroup LspFormatting
+	--                autocmd! * <buffer>
+	--                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+	--            augroup END
+	--            ]])
 end
 
 -- Setup lspconfig.
@@ -71,7 +71,7 @@ local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_clie
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "sumneko_lua", "solargraph" }
+local servers = { "sumneko_lua", "solargraph", "rescriptls" }
 local setting_sumneko = require("user.lsp.providers.sumneko_lua")
 
 local lang_configs = {
@@ -81,6 +81,15 @@ local lang_configs = {
 		filetypes = { "ruby", "rb", "erb", "rakefile" },
 		init_options = { formatting = true },
 		settings = { diagnostics = true, autoformat = false, formatting = true },
+	},
+	rescriptls = {
+		cmd = {
+			"node",
+			"/Users/huantd/.local/share/nvim/site/pack/packer/start/vim-rescript/server/out/server.js",
+			"--stdio",
+		},
+		filetypes = { "rescript" },
+		settings = { diagnostics = true },
 	},
 }
 
