@@ -36,9 +36,6 @@ local formatting = null_ls.builtins.formatting
 local code_actions = null_ls.builtins.code_actions
 
 local sources = {
-	-- formatting.eslint_d,
-	-- code_actions.eslint_d,
-	--
 	formatting.prettier,
 	formatting.rescript,
 	formatting.stylua,
