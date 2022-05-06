@@ -71,7 +71,7 @@ local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_clie
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "sumneko_lua", "solargraph"}
+local servers = { "sumneko_lua", "solargraph" }
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")

@@ -23,7 +23,7 @@ _G.formatting = function(bufnr)
 			end
 
 			if res then
-				vim.lsp.util.apply_text_edits(res, bufnr)
+				vim.lsp.util.apply_text_edits(res, bufnr, "utf8")
 				vim.api.nvim_buf_call(bufnr, function()
 					vim.cmd("silent noautocmd update")
 				end)
