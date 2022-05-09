@@ -52,7 +52,6 @@ endfunction
 command! -nargs=* -bang RG call FzfAutoRefreshRipgrep(<q-args>, <bang>0)
 nnoremap <silent> <leader>rg <ESC>:RG<CR>
 
-nnoremap <c-o> <ESC>:Tags<CR>
 nnoremap <slient> <leader>t <ESC>:BTags<CR>
 nnoremap <c-]> <ESC>:call fzf#vim#tags('^' . expand('<cword>'), {'options': '--exact +i'})<CR>
 nnoremap <silent> <leader>mm <ESC>:Commands<CR>
