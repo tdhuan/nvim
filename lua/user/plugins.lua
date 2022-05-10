@@ -36,43 +36,47 @@ packer.init({
 return require("packer").startup(function(use)
 	-- My plugins here
 	use("wbthomason/packer.nvim")
+
+	-- Color schemes
 	use("sainnhe/gruvbox-material")
+
+	-- Language support
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer")
 	use("nvim-lua/plenary.nvim")
+	use("rescript-lang/vim-rescript")
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	})
+	use("folke/lua-dev.nvim")
 
+	-- Completion
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/nvim-cmp")
-
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 
-	use("rescript-lang/vim-rescript")
-
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
-
+	-- Git support
 	use({
 		"lewis6991/gitsigns.nvim",
 		-- tag = 'release' -- To use the latest release
 	})
 
+	-- Status line, buffer
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
-
 	use({ "akinsho/bufferline.nvim", tag = "*", requires = "kyazdani42/nvim-web-devicons" })
-	use({
-		"numToStr/Comment.nvim",
-		config = [[require"comment"]],
-	})
 
+	-- Comment code
+	use({ "numToStr/Comment.nvim" })
+
+	-- Code actions, formatting
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
@@ -81,11 +85,13 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
+	-- Find files, text
 	use({
 		"junegunn/fzf.vim",
 		requires = { "junegunn/fzf", dir = "~/.fzf", run = "./install --all" },
 	})
 
+	-- Explore
 	use({
 		"ms-jpq/chadtree",
 		branch = "chad",
@@ -93,13 +99,12 @@ return require("packer").startup(function(use)
 		cmd = "CHADopen",
 	})
 
-	use("lukas-reineke/indent-blankline.nvim")
+	-- Misc
 	use("tpope/vim-surround")
-
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
+	use("lukas-reineke/indent-blankline.nvim")
 
-	use("folke/lua-dev.nvim")
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
