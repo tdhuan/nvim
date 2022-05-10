@@ -19,7 +19,7 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
----------------------------- NORMAL  ---------------------------- 
+---------------------------- NORMAL  ----------------------------
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -48,7 +48,6 @@ keymap("n", "<leader>ls", ":buffers<CR>", opts)
 keymap("n", "<leader>el", "$", opts)
 keymap("n", "<leader>bl", "^", opts)
 
-
 keymap("n", "vs", ":vsplit<CR>", opts)
 keymap("n", "sp", ":split<CR>", opts)
 
@@ -64,7 +63,6 @@ keymap("n", "<leader>nhl", ":nohl<CR>", opts)
 
 -- Quick toggle between two files *CTRL-^* *CTRL-6*
 keymap("n", "<Tab>", "<C-^>", no_silent_opts)
-
 
 ---------------------------- INSERT  ----------------------------
 -- Press jk fast to enter
@@ -97,3 +95,4 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+keymap("t", "<Esc>", "<ESC><C-\\><C-N>", term_opts)

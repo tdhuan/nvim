@@ -18,7 +18,9 @@ cmd([[syntax enable]])
 
 require("user.options")
 require("user.keymaps")
+
 require("user.plugins")
+
 require("user.lsp")
 require("user.cmp")
 require("user.gitsigns")
@@ -30,6 +32,7 @@ require("user.indent-blankline")
 require("user.auto-pairs")
 require("user.auto-tag")
 require("user.treesitter")
+require("user.toggle-term")
 
 api.nvim_set_var("gruvbox_material_palette", "mix")
 api.nvim_set_var("gruvbox_material_background", "hard")

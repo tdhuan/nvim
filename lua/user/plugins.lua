@@ -105,6 +105,15 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	use("lukas-reineke/indent-blankline.nvim")
 
+	-- Terminal
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "v1.*",
+		config = function()
+			require("toggleterm").setup()
+		end,
+	})
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
