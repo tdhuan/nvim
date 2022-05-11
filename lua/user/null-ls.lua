@@ -40,6 +40,7 @@ local sources = {
 	formatting.rescript,
 	formatting.stylua,
 	formatting.erb_lint,
+	formatting.rubocop,
 }
 
 null_ls.setup({
