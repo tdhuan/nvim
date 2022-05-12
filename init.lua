@@ -1,5 +1,6 @@
 local cmd = vim.cmd
 local api = vim.api
+_G.keymap = vim.api.nvim_set_keymap
 
 _G.log = {
 	info = function(msg)
