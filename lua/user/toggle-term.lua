@@ -6,4 +6,14 @@ end
 toggleterm.setup()
 
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "<Leader>t", ":ToggleTerm size=20 dir=/Users/huantd direction=float <CR>", opts)
+
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, size = 20, direction = "float" })
+
+function _lazygit_toggle()
+	lazygit:toggle()
+end
+
+keymap("n", "<leader>lz", "<cmd>lua _lazygit_toggle()<CR>", opts)
+
+keymap("n", "<Leader>t", ":ToggleTerm size=20 direction=float <CR>", opts)

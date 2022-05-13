@@ -110,9 +110,6 @@ return require("packer").startup(function(use)
 	use({
 		"akinsho/toggleterm.nvim",
 		tag = "v1.*",
-		config = function()
-			require("toggleterm").setup()
-		end,
 	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
