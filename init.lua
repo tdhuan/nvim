@@ -34,6 +34,7 @@ require("user.auto-pairs")
 require("user.auto-tag")
 require("user.treesitter")
 require("user.toggle-term")
+require("user.fugitive")
 
 api.nvim_set_var("gruvbox_material_palette", "mix")
 api.nvim_set_var("gruvbox_material_background", "hard")
