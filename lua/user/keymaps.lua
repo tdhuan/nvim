@@ -9,7 +9,6 @@ local term_opts = { silent = true }
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- Modes
 --   normal_mode = "n",
@@ -37,8 +36,8 @@ keymap("n", "+", ":vertical resize +10<CR>", opts)
 keymap("n", "_", ":vertical resize -10<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "L", ":bnext<CR>", opts)
+keymap("n", "H", ":bprevious<CR>", opts)
 
 -- Delete buffer
 keymap("n", "bd", ":bd<CR>", opts)
@@ -65,6 +64,11 @@ keymap("n", "<leader>nhl", ":nohl<CR>", opts)
 
 -- Quick toggle between two files *CTRL-^* *CTRL-6*
 keymap("n", "<Tab>", "<C-^>", no_silent_opts)
+
+-- Moving in window
+keymap("n", "<leader>ll", "L", opts)
+keymap("n", "<leader>hh", "H", opts)
+keymap("n", "<leader>mm", "M", opts)
 
 ---------------------------- INSERT  ----------------------------
 -- Press jk fast to enter
