@@ -2,14 +2,26 @@ local status_ok, null_ls = pcall(require, "null-ls")
 if not status_ok then
 	return
 end
-_G.formatting = function(bufnr)
-	bufnr = tonumber(bufnr) or vim.api.nvim_get_current_buf()
+
+local formatting = null_ls.builtins.formatting
+local code_actions = null_ls.builtins.code_actions
+
+local sources = {
+	formatting.prettier,
+	formatting.rescript,
+	formatting.stylua,
+	formatting.erb_lint,
+	formatting.rubocop,
+}
+
+local async_formatting = function(bufnr)
+	bufnr = bufnr or vim.api.nvim_get_current_buf()
 
 	vim.lsp.buf_request(
 		bufnr,
 		"textDocument/formatting",
 		{ textDocument = { uri = vim.uri_from_bufnr(bufnr) } },
-		function(err, res)
+		function(err, res, ctx)
 			if err then
 				local err_msg = type(err) == "string" and err or err.message
 				-- you can modify the log message / level (or ignore it completely)
@@ -23,7 +35,8 @@ _G.formatting = function(bufnr)
 			end
 
 			if res then
-				vim.lsp.util.apply_text_edits(res, bufnr, "utf8")
+				local client = vim.lsp.get_client_by_id(ctx.client_id)
+				vim.lsp.util.apply_text_edits(res, bufnr, client and client.offset_encoding or "utf-16")
 				vim.api.nvim_buf_call(bufnr, function()
 					vim.cmd("silent noautocmd update")
 				end)
@@ -32,29 +45,22 @@ _G.formatting = function(bufnr)
 	)
 end
 
-local formatting = null_ls.builtins.formatting
-local code_actions = null_ls.builtins.code_actions
-
-local sources = {
-	formatting.prettier,
-	formatting.rescript,
-	formatting.stylua,
-	formatting.erb_lint,
-	formatting.rubocop,
-}
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
-	debug = true,
+	-- add your sources / config options here
 	sources = sources,
+	debug = false,
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
-			-- wrap in an augroup to prevent duplicate autocmds
-			vim.cmd([[
-            augroup LspFormatting
-                autocmd! * <buffer>
-                autocmd BufWritePost <buffer> lua formatting(vim.fn.expand("<abuf>"))
-            augroup END
-            ]])
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePost", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					async_formatting(bufnr)
+				end,
+			})
 		end
 	end,
 })

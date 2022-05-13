@@ -75,7 +75,7 @@ local lang_configs = {
 	sumneko_lua = setting_sumneko,
 	solargraph = {
 		cmd = { "solargraph", "stdio" },
-		filetypes = { "ruby", "rb", "erb", "rakefile" },
+		filetypes = { "ruby", "rb", "eruby", "rakefile" },
 		init_options = { formatting = true },
 		settings = { diagnostics = true, autoformat = false, formatting = true },
 	},
