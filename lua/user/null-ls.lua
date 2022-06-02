@@ -12,6 +12,7 @@ local sources = {
 	formatting.stylua,
 	formatting.erb_lint,
 	formatting.rubocop,
+	formatting.shfmt,
 }
 
 local async_formatting = function(bufnr)

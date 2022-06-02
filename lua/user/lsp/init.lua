@@ -68,7 +68,7 @@ local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_clie
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "sumneko_lua", "solargraph", "rescriptls", "tsserver" }
+local servers = { "sumneko_lua", "solargraph", "rescriptls", "tsserver", "bashls" }
 local setting_sumneko = require("user.lsp.providers.sumneko_lua")
 
 local lang_configs = {
@@ -99,6 +99,13 @@ local lang_configs = {
 			"typescript.tsx",
 		},
 		init_options = { hostInfo = "neovim" },
+	},
+	bashls = {
+		cmd = { "bash-language-server", "start" },
+		cmd_env = {
+			GLOB_PATTERN = "*@(.sh|.inc|.bash|.command)",
+		},
+		filetypes = { "sh" },
 	},
 }
 
