@@ -112,6 +112,8 @@ return require("packer").startup(function(use)
 		tag = "v1.*",
 	})
 
+	use({ "tpope/vim-abolish" })
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
