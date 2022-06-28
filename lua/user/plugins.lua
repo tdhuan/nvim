@@ -112,7 +112,11 @@ return require("packer").startup(function(use)
 		tag = "v1.*",
 	})
 
+	-- easily search for, substitute, and abbreviate multiple variants of a word
 	use({ "tpope/vim-abolish" })
+
+	-- Markdown preview
+	use({ "ellisonleao/glow.nvim", branch = "main" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

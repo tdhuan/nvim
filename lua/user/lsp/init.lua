@@ -37,6 +37,7 @@ local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	if client.name == "tsserver" then
 		client.resolved_capabilities.document_formatting = false
+		-- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting()]])
 	end
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
