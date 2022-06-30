@@ -13,7 +13,7 @@ local sources = {
 	formatting.erb_lint,
 	formatting.rubocop,
 	formatting.shfmt,
-}
+	code_actions.eslint, }
 
 local async_formatting = function(bufnr)
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
@@ -21,7 +21,7 @@ local async_formatting = function(bufnr)
 	vim.lsp.buf_request(
 		bufnr,
 		"textDocument/formatting",
-		{ textDocument = { uri = vim.uri_from_bufnr(bufnr) } },
+		{ textDocument = { uri = vim.uri_from_bufnr(bufnr) }, options = { insertSpaces = true } },
 		function(err, res, ctx)
 			if err then
 				local err_msg = type(err) == "string" and err or err.message

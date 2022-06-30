@@ -35,10 +35,10 @@ vim.api.nvim_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<C
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
-	if client.name == "tsserver" then
-		client.resolved_capabilities.document_formatting = false
-		-- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting()]])
-	end
+	-- if client.name == "tsserver" then
+	-- 	client.resolved_capabilities.document_formatting = true
+	-- 	-- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting()]])
+	-- end
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- Mappings.
