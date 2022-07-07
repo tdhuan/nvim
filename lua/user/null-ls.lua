@@ -5,6 +5,7 @@ end
 
 local formatting = null_ls.builtins.formatting
 local code_actions = null_ls.builtins.code_actions
+local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
 	formatting.prettier,
@@ -13,7 +14,12 @@ local sources = {
 	formatting.erb_lint,
 	formatting.rubocop,
 	formatting.shfmt,
-	code_actions.eslint, }
+
+	code_actions.eslint,
+
+	diagnostics.eslint,
+	diagnostics.rubocop,
+}
 
 local async_formatting = function(bufnr)
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
@@ -21,7 +27,7 @@ local async_formatting = function(bufnr)
 	vim.lsp.buf_request(
 		bufnr,
 		"textDocument/formatting",
-		{ textDocument = { uri = vim.uri_from_bufnr(bufnr) }, options = { insertSpaces = true } },
+		{ textDocument = { uri = vim.uri_from_bufnr(bufnr) } },
 		function(err, res, ctx)
 			if err then
 				local err_msg = type(err) == "string" and err or err.message
@@ -50,7 +56,9 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
 	-- add your sources / config options here
+	cmd = { "nvim" },
 	sources = sources,
+	diagnostics_format = "[#{s} - #{c}] #{m}",
 	debug = false,
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
