@@ -35,10 +35,11 @@ vim.api.nvim_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<C
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
-	-- if client.name == "tsserver" then
-	-- 	client.resolved_capabilities.document_formatting = true
-	-- 	-- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting()]])
-	-- end
+	if client.name == "tsserver" then
+		client.resolved_capabilities.document_formatting = false
+		-- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]])
+	end
+
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- Mappings.
@@ -61,7 +62,7 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
 end
 
 -- Setup lspconfig.
@@ -78,7 +79,7 @@ local lang_configs = {
 		cmd = { "solargraph", "stdio" },
 		filetypes = { "ruby", "rb", "eruby", "rakefile" },
 		init_options = { formatting = true },
-		settings = { diagnostics = true, autoformat = false, formatting = true },
+		settings = { diagnostics = false, autoformat = false, formatting = true },
 	},
 	rescriptls = {
 		cmd = {
@@ -108,6 +109,7 @@ local lang_configs = {
 		},
 		filetypes = { "sh" },
 	},
+	-- eslint = {},
 }
 
 for _, name in pairs(servers) do
