@@ -36,6 +36,7 @@ require("user.treesitter")
 require("user.toggle-term")
 require("user.fugitive")
 require("user.glow")
+require("user.telescope")
 
 api.nvim_set_var("gruvbox_material_palette", "mix")
 api.nvim_set_var("gruvbox_material_background", "hard")

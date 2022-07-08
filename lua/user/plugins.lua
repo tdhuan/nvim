@@ -86,10 +86,14 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
-	-- Find files, text
+	-- Find, filer, preview, pick
 	use({
 		"junegunn/fzf.vim",
 		requires = { "junegunn/fzf", dir = "~/.fzf", run = "./install --all" },
+	})
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
 	-- Explore
