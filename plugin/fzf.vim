@@ -1,5 +1,4 @@
 let $FZF_DEFAULT_COMMAND = 'rg --files  --hidden --follow --glob "!{.git, node_modules}"'
-
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
   copen
@@ -57,7 +56,7 @@ nnoremap <c-]> <ESC>:call fzf#vim#tags('^' . expand('<cword>'), {'options': '--e
 nnoremap <silent> <leader>mm <ESC>:Commands<CR>
 nnoremap <silent> <leader>? :History<CR>
 nnoremap <silent> <leader>A :Windows<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>B :Buffers<CR>
 
 function! FzfVisualSearch(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --color=always --glob "!{.git, node_modules}" -- %s || true'
