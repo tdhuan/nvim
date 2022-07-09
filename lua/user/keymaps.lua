@@ -21,6 +21,10 @@ vim.g.mapleader = " "
 ---------------------------- NORMAL  ----------------------------
 -- source file .lua
 keymap("n", "<leader>sou", ":source<CR>", opts)
+
+-- Fix eslint
+keymap("n", "<leader>fix", ":EslintFixAll<CR>", opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
