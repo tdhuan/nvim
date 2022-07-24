@@ -18,6 +18,7 @@ local sources = {
 	code_actions.eslint,
 
 	diagnostics.rubocop,
+	diagnostics.eslint,
 }
 
 local async_formatting = function(bufnr)

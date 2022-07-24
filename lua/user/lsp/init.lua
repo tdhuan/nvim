@@ -40,18 +40,18 @@ local on_attach = function(client, bufnr)
 		-- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]])
 	end
 
-	if client.name == "eslint" then
-		vim.diagnostic.config({
-			virtual_text = {
-				format = function(diagnostic)
-					if diagnostic.severity == vim.diagnostic.severity.ERROR then
-						return string.format("[%s - %s]: %s", diagnostic.source, diagnostic.code, diagnostic.message)
-					end
-					return diagnostic.message
-				end,
-			},
-		})
-	end
+	-- if client.name == "eslint" then
+	-- 	vim.diagnostic.config({
+	-- 		virtual_text = {
+	-- 			format = function(diagnostic)
+	-- 				if diagnostic.severity == vim.diagnostic.severity.ERROR then
+	-- 					return string.format("[%s - %s]: %s", diagnostic.source, diagnostic.code, diagnostic.message)
+	-- 				end
+	-- 				return diagnostic.message
+	-- 			end,
+	-- 		},
+	-- 	})
+	-- end
 
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -83,7 +83,7 @@ local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_clie
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "sumneko_lua", "solargraph", "rescriptls", "tsserver", "bashls", "eslint" }
+local servers = { "sumneko_lua", "solargraph", "rescriptls", "tsserver", "bashls" }
 local setting_sumneko = require("user.lsp.providers.sumneko_lua")
 
 local lang_configs = {
@@ -122,7 +122,6 @@ local lang_configs = {
 		},
 		filetypes = { "sh" },
 	},
-	eslint = {},
 }
 
 for _, name in pairs(servers) do
