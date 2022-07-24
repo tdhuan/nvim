@@ -83,7 +83,7 @@ local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_clie
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "sumneko_lua", "solargraph", "rescriptls", "tsserver", "bashls" }
+local servers = { "sumneko_lua", "solargraph", "rescriptls", "tsserver", "bashls", "tailwindcss" }
 local setting_sumneko = require("user.lsp.providers.sumneko_lua")
 
 local lang_configs = {
@@ -121,6 +121,33 @@ local lang_configs = {
 			GLOB_PATTERN = "*@(.sh|.inc|.bash|.command)",
 		},
 		filetypes = { "sh" },
+	},
+	tailwindcss = {
+		{
+			settings = {
+				tailwindCSS = {
+					classAttributes = { "class", "className", "classList", "ngClass" },
+					lint = {
+						cssConflict = "warning",
+						invalidApply = "error",
+						invalidConfigPath = "error",
+						invalidScreen = "error",
+						invalidTailwindDirective = "error",
+						invalidVariant = "error",
+						recommendedVariantOrder = "warning",
+					},
+					validate = true,
+					codeActions = true,
+					files = {
+						exclude = { "**/.git/**", "**/node_modules/**", "**/.hg/**" },
+					},
+					colorDecorators = true,
+					showPixelEquivalents = true,
+					suggestions = true,
+					hover = true,
+				},
+			},
+		},
 	},
 }
 
