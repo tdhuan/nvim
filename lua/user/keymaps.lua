@@ -24,6 +24,7 @@ keymap("n", "<leader>sou", ":source<CR>", opts)
 
 -- Fix eslint
 -- keymap("n", "<leader>fix", ":EslintFixAll<CR>", opts)
+keymap("n", "<leader><leader>", "10j<cr>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
