@@ -76,10 +76,28 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+
+	if client.resolved_capabilities.document_highlight then
+		vim.api.nvim_exec(
+			[[
+    augroup lsp_document_highlight
+      autocmd! * <buffer>
+      autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+      autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+    augroup END
+    ]],
+			false
+		)
+	end
+
+	if client.server_capabilities.colorProvider then
+		require("user.lsp.lsp-documentcolors").buf_attach(bufnr, { single_column = true })
+	end
 end
 
 -- Setup lspconfig.
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.colorProvider = { dynamicRegistration = false }
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
