@@ -22,6 +22,9 @@ vim.g.mapleader = " "
 -- source file .lua
 keymap("n", "<leader>sou", ":source<CR>", opts)
 
+-- Copy all file
+keymap("n", "<C-A>", "gg<S-V>G<CR>", opts)
+
 -- Fix eslint
 -- keymap("n", "<leader>fix", ":EslintFixAll<CR>", opts)
 keymap("n", "<leader><leader>", "10j<cr>", opts)
