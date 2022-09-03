@@ -15,10 +15,10 @@ local sources = {
 	formatting.rubocop,
 	formatting.shfmt,
 
-	code_actions.eslint,
+	code_actions.eslint_d,
 
 	diagnostics.rubocop,
-	diagnostics.eslint,
+	diagnostics.eslint_d,
 }
 
 local async_formatting = function(bufnr)
