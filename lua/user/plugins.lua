@@ -76,6 +76,7 @@ return require("packer").startup(function(use)
 
 	-- Comment code
 	use({ "numToStr/Comment.nvim" })
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Code actions, formatting
 	use({
