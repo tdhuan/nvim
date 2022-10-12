@@ -57,7 +57,15 @@ treesitter.setup({
 		enable = true,
 		enable_autocmd = false,
 		config = {
-			typescript = "// %s",
+			typescript = {
+				__default = "// %s",
+				__multiline = "/* %s */",
+				jsx_element = "{/* %s */}",
+				jsx_fragment = "{/* %s */}",
+				jsx_attribute = "// %s",
+				comment = "// %s",
+			},
+
 			javascript = {
 				__default = "// %s",
 				__multiline = "/* %s */",
@@ -72,7 +80,7 @@ treesitter.setup({
 			svelte = "<!-- %s -->",
 			vue = "<!-- %s -->",
 			json = "",
-			ruby = "#",
+			ruby = "# %s",
 		},
 	},
 })
