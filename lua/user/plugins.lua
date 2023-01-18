@@ -49,7 +49,7 @@ return require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	use("folke/lua-dev.nvim")
+	use("folke/neodev.nvim")
 
 	-- Completion
 	use("hrsh7th/cmp-nvim-lsp")
