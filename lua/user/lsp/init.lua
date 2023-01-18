@@ -121,7 +121,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Setup lspconfig.
-local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.colorProvider = { dynamicRegistration = false }
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
