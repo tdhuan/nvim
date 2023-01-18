@@ -4,3 +4,5 @@ if not status_ok then
 	return
 end
 nvim_autopairs.setup({})
+nvim_autopairs.add_rules(require("nvim-autopairs.rules.endwise-ruby"))
+nvim_autopairs.add_rules(require("nvim-autopairs.rules.endwise-lua"))
