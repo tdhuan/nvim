@@ -26,7 +26,7 @@ local opts = {
   },
 }
 
-local lua_dev_loaded, lua_dev = pcall(require, "lua-dev")
+local lua_dev_loaded, neodev = pcall(require, "neodev")
 if not lua_dev_loaded then
   return opts
 end
@@ -42,4 +42,4 @@ local dev_opts = {
   lspconfig = opts,
 }
 
-return lua_dev.setup(dev_opts)
+return neodev.setup(dev_opts)
