@@ -115,7 +115,7 @@ return require("packer").startup(function(use)
 	-- Terminal
 	use({
 		"akinsho/toggleterm.nvim",
-		tag = "v1.*",
+		tag = "*",
 	})
 
 	-- easily search for, substitute, and abbreviate multiple variants of a word

@@ -6,10 +6,10 @@ end
 treesitter.setup({
   sync_install = false,
   auto_intall = true,
-	-- highlight = {
-	-- 	enable = true, -- false will disable the whole extension
-	-- 	additional_vim_regex_highlighting = true,
-	-- },
+	highlight = {
+		enable = true, -- false will disable the whole extension
+		additional_vim_regex_highlighting = true,
+	},
 	incremental_selection = {
 		enable = true,
 		keymaps = {
