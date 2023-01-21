@@ -216,4 +216,4 @@ for _, lsp in pairs(servers) do
 	}))
 end
 
--- require("user.null-ls")
+require("user.null-ls")
