@@ -121,15 +121,15 @@ local on_attach = function(client, bufnr)
 end
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = cmp_nvim_lsp.default_capabilities()
 capabilities.textDocument.colorProvider = { dynamicRegistration = false }
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "sumneko_lua", "solargraph", "rescriptls", "tsserver", "bashls", "tailwindcss", "jsonls", "graphql" }
+local servers = { "lua_ls", "solargraph", "rescriptls", "tsserver", "bashls", "tailwindcss", "jsonls", "graphql" }
 
 local lang_configs = {
-	sumneko_lua = setting_sumneko,
+	lua_ls = setting_sumneko,
 	solargraph = {
 		cmd = { "solargraph", "stdio" },
 		filetypes = { "ruby", "rb", "eruby", "rakefile" },
