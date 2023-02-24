@@ -50,6 +50,7 @@ return require("packer").startup(function(use)
 		run = ":TSUpdate",
 	})
 	use("folke/neodev.nvim")
+	use("simrat39/symbols-outline.nvim")
 
 	-- Completion
 	use("hrsh7th/cmp-nvim-lsp")
