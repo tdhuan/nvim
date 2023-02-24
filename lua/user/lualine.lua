@@ -3,6 +3,10 @@ if not status_ok then
 	return
 end
 
+local custom_everforest = require("lualine.themes.everforest")
+custom_everforest.insert.a.bg = "#88C0D0"
+custom_everforest.command.a.bg = "#fdc8Ec"
+
 local function window()
 	return vim.api.nvim_win_get_number(0)
 end
@@ -10,7 +14,7 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "auto",
+		theme = custom_everforest,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = {},
