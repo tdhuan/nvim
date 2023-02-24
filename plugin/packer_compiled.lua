@@ -229,6 +229,11 @@ _G.packer_plugins = {
     path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
     url = "https://github.com/simrat39/symbols-outline.nvim"
   },
+  tagbar = {
+    loaded = true,
+    path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/tagbar",
+    url = "https://github.com/preservim/tagbar"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/telescope.nvim",

@@ -38,6 +38,7 @@ require("user.fugitive")
 require("user.glow")
 require("user.telescope")
 require("user.colorizer")
+require("user.tagbar")
 require("user.symbol-outline")
 
 api.nvim_set_var("gruvbox_material_palette", "mix")
