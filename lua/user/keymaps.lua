@@ -63,6 +63,7 @@ keymap("n", "sp", ":split<CR>", opts)
 -- Quick save, quick quit
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":q<CR>", opts)
+keymap("n", "<leader>Q", ":qa<CR>", opts)
 
 -- Quick search, replace
 keymap("n", "<leader>S", ":.,$s/foo/bar/g", no_silent_opts)
