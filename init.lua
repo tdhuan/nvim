@@ -43,5 +43,9 @@ require("user.symbol-outline")
 
 api.nvim_set_var("gruvbox_material_palette", "mix")
 api.nvim_set_var("gruvbox_material_background", "hard")
-api.nvim_set_var("g:gruvbox_material_better_performance", "1")
+api.nvim_set_var("gruvbox_material_better_performance", "1")
 cmd([[colorscheme gruvbox-material]])
+
+-- api.nvim_set_var("everforest_background", "hard")
+-- api.nvim_set_var("everforest_better_performance", "1")
+-- cmd([[colorscheme everforest]])
