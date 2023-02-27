@@ -39,6 +39,7 @@ return require("packer").startup(function(use)
 
 	-- Color schemes
 	use("sainnhe/gruvbox-material")
+	use("rebelot/kanagawa.nvim")
 
 	-- Language support
 	use("neovim/nvim-lspconfig")
