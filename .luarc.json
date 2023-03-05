@@ -5,6 +5,7 @@
         "vim",
         "keymap",
         "log",
-        "lazygit_toggle"
+        "lazygit_toggle",
+        "pcall"
     ]
 }

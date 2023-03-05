@@ -40,12 +40,16 @@ require("user.telescope")
 require("user.colorizer")
 require("user.tagbar")
 require("user.symbol-outline")
+require("user.monokai-pro")
 
 api.nvim_set_var("gruvbox_material_palette", "mix")
 api.nvim_set_var("gruvbox_material_background", "hard")
 api.nvim_set_var("gruvbox_material_better_performance", "1")
 cmd([[colorscheme gruvbox-material]])
 
+-- Everforest themes
 -- api.nvim_set_var("everforest_background", "hard")
 -- api.nvim_set_var("everforest_better_performance", "1")
 -- cmd([[colorscheme everforest]])
+
+-- vim.cmd([[colorscheme monokai-pro]])

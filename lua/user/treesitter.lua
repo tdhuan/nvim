@@ -4,8 +4,8 @@ if not status_ok then
 end
 
 treesitter.setup({
-  sync_install = false,
-  auto_intall = true,
+	sync_install = false,
+	auto_intall = true,
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		additional_vim_regex_highlighting = true,

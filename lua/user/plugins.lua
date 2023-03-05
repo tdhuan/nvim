@@ -41,6 +41,7 @@ return require("packer").startup(function(use)
 	use("sainnhe/gruvbox-material")
 	use("rebelot/kanagawa.nvim")
 	use("sainnhe/everforest")
+	use("loctvl842/monokai-pro.nvim")
 
 	-- Language support
 	use("neovim/nvim-lspconfig")
