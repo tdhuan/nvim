@@ -239,6 +239,11 @@ _G.packer_plugins = {
     path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  sonokai = {
+    loaded = true,
+    path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/sonokai",
+    url = "https://github.com/sainnhe/sonokai"
+  },
   ["symbols-outline.nvim"] = {
     loaded = true,
     path = "/Users/huantd/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
