@@ -45,11 +45,16 @@ require("user.monokai-pro")
 api.nvim_set_var("gruvbox_material_palette", "mix")
 api.nvim_set_var("gruvbox_material_background", "hard")
 api.nvim_set_var("gruvbox_material_better_performance", "1")
-cmd([[colorscheme gruvbox-material]])
+-- cmd([[colorscheme gruvbox-material]])
+
+api.nvim_set_var("sonokai_style", "andromeda")
+-- api.nvim_set_var("sonokai_better_performance", "1")
+cmd([[colorscheme sonokai]])
 
 -- Everforest themes
--- api.nvim_set_var("everforest_background", "hard")
--- api.nvim_set_var("everforest_better_performance", "1")
+api.nvim_set_var("everforest_background", "hard")
+api.nvim_set_var("everforest_better_performance", "1")
+
 -- cmd([[colorscheme everforest]])
 
 -- vim.cmd([[colorscheme monokai-pro]])
