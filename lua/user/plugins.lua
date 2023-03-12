@@ -103,7 +103,7 @@ return require("packer").startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
-	-- Explore
+	-- Explorer tree
 	use({
 		"ms-jpq/chadtree",
 		branch = "chad",
