@@ -41,6 +41,7 @@ require("user.colorizer")
 require("user.tagbar")
 require("user.symbol-outline")
 require("user.monokai-pro")
+require("user.copilot")
 local command = require("user.command")
 
 command.create_filter_command()

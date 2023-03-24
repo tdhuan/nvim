@@ -4,5 +4,5 @@ if not status_ok then
 end
 
 monokai.setup({
-	filter = "octagon",
+	filter = "spectrum",
 })
