@@ -1,1 +1,1 @@
-vim.cmd([[imap <silent><script><expr> <C-P> copilot#Accept("\<CR>")]])
+vim.cmd([[imap <silent><script><expr> <C-M> copilot#Accept("\<CR>")]])
